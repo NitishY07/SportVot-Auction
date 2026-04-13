@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Hammer, MonitorPlay, Users, Shield, Sparkles, Copy, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
-  const CopyButton = ({ path }) => {
+  const CopyButton = ({ path }: { path: string }) => {
     const [copied, setCopied] = useState(false);
-    const handleCopy = (e) => {
+    const handleCopy = (e: React.MouseEvent) => {
       e.preventDefault(); e.stopPropagation();
       const url = typeof window !== 'undefined' ? `${window.location.origin}${path}` : `http://localhost:3000${path}`;
       navigator.clipboard.writeText(url);
